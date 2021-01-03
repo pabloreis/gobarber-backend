@@ -3,7 +3,7 @@ import { getRepository, Repository, Raw } from 'typeorm';
 import IAppointmentsRepository from '@modules/appointments/repositories/IAppointmentsRepository';
 import ICreateAppointmentDTO from '@modules/appointments/dtos/ICreateAppointmentDTO';
 import IFindAllInMonthFromProviderDTO from '@modules/appointments/dtos/IFindAllInMonthFromProviderDTO';
-import IFindAllInDayFromProviderDTO from '@modules/appointments/dtos/IFindAllInDayFromProviderDTO';
+import IFindAllOnDayFromProviderDTO from '@modules/appointments/dtos/IFindAllOnDayFromProviderDTO';
 
 import Appointment from '../entities/Appointments';
 
@@ -47,7 +47,7 @@ class AppointmentsRepository implements IAppointmentsRepository {
     day,
     year,
     month,
-  }: IFindAllInDayFromProviderDTO): Promise<Appointment[]> {
+  }: IFindAllOnDayFromProviderDTO): Promise<Appointment[]> {
     const parsedDay = String(day).padStart(2, '0');
     const parsedMonth = String(month).padStart(2, '0');
 
