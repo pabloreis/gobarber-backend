@@ -21,7 +21,7 @@ class ListProviderDayAvailabilityService {
   constructor(
     @inject('AppointmentsRepository')
     private appointmentsRepository: IAppointmentsRepository,
-  ) {}
+  ) { }
 
   public async execute({
     provider_id,
@@ -29,7 +29,7 @@ class ListProviderDayAvailabilityService {
     month,
     year,
   }: IRequest): Promise<IResponse> {
-    const appointments = await this.appointmentsRepository.findAllInDayFromProvider(
+    const appointments = await this.appointmentsRepository.findAllOnDayFromProvider(
       {
         provider_id,
         day,
